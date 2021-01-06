@@ -1,0 +1,33 @@
+.imageBox {
+    font-size: 10px;
+    background-color: 'blue';
+    border-radius: 8px;
+    height: 150px;
+}
+
+.seccion__characters {
+	display: flex;
+	flex-direction: row;
+	margin-left: 15px;
+	margin-bottom: 50px;
+}
+
+.seccion__characters__top {
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+}
+
+.seccion__characters__top__img {
+	margin-left: 20px;
+}
+
+.seccion__characters__items__img {
+    height: -webkit-fill-available;
+    border-radius: 10px;
+    height: 200px;
+}
