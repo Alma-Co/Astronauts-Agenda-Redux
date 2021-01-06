@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -12,7 +13,7 @@ function AstronautsList({astronautList, dispatch}) {
   
     useEffect(() => {
       if (!astronautList && !astronautList?.length) {
-        dispatch(getAstronautsList(2));
+        dispatch(getAstronautsList(20));
       }
     }, [astronautList?.length]);
 
@@ -21,19 +22,21 @@ function AstronautsList({astronautList, dispatch}) {
     return (
       <>
       <div>
-        <h1>LISTA OF CHARACTERS</h1>
+        <h1>LIST OF CHARACTERS</h1>
+        <div className="seccion__characters">
+            <div className="seccion__characters__top">
         {astronautList &&
         astronautList?.map((character,i) => (
-          <div>
-          <h1 className='imageBox' key={'name',i}>{character.name}</h1>
-          <div>
-          <img  src={character.image} alt={character.name, i}/>
-          </div>
-          </div>
+          <div className="seccion__characters__top__img">
+                    <img className="seccion__characters__items__img"  src={character.image}/>
+                    <h2>{character.name}</h2>
+                </div>
         ))
         }
-        boton onclick= dispatch getAstronautsList())
-      </div>
+          </div>
+        </div>       
+        </div>
+        
       </>
     );
 }
