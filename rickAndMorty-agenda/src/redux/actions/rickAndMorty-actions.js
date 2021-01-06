@@ -14,6 +14,20 @@ function charactersListError(errorList) {
     }
 };
 
+function speciesListSuccess(speciesList) {
+    return {
+        type: 'LOAD_SPECIES_LIST',
+        speciesList
+    }
+ };
+ 
+ function speciesListError(errorSpeciesList) {
+     return {
+         type: 'LOAD_LIST_SPECIES_ERROR',
+         errorSpeciesList
+     }
+ };
+
 export function getCharactersList(pageNum) {
     return async (dispatch) => {
         const endpointList = `https://rickandmortyapi.com/api/character/?page=${pageNum}`;
@@ -27,3 +41,14 @@ export function getCharactersList(pageNum) {
     };   
 }
 
+export function getSpeciesList(specie, pageNum) {
+    return async (dispatch) => {
+        const endpointList = `https://rickandmortyapi.com/api/character/?species=${specie}&page=${pageNum}`;
+    try {
+        const loadingList = await axios.get(endpointList);
+        dispatch(speciesListSuccess(loadingList.data.results))
+    } catch(error) {
+        dispatch(speciesListError(error))
+    }
+    };   
+}
